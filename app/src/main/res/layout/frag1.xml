@@ -39,30 +39,26 @@
         />
 
 
-    <Button
-        android:id="@+id/slide_calendar"
-        android:text="Slide animation"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/prev_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/show_with_animation_calendar" />
+
 
     <Button
         android:id="@+id/expose_animation"
-        android:text="Expose animation"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/next_button"
+
+        android:text="Expose"
+        android:layout_below="@+id/compactcalendar_view"
+        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         />
 
 
     <ListView
         android:id="@+id/bookings_listview"
-        android:layout_below="@+id/prev_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
     </ListView>
 
 </RelativeLayout>

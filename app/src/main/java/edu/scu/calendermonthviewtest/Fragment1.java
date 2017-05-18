@@ -1,6 +1,5 @@
 package edu.scu.calendermonthviewtest;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -17,7 +16,6 @@ import com.github.sundeepk.compactcalendarview.domain.Event;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -32,7 +30,7 @@ import static android.content.ContentValues.TAG;
 
 public class Fragment1 extends Fragment {
     private CompactCalendarView compactCalendarView;
-  //  private SimpleDateFormat dateFormatForMonth = new SimpleDateFormat("MMM - yyyy", Locale.getDefault());
+    //  private SimpleDateFormat dateFormatForMonth = new SimpleDateFormat("MMM - yyyy", Locale.getDefault());
     private ActionBar toolbar;
     private Calendar currentCalender = Calendar.getInstance(Locale.getDefault());
     private SimpleDateFormat dateFormatForDisplaying = new SimpleDateFormat("dd-M-yyyy hh:mm:ss a", Locale.getDefault());
@@ -41,25 +39,25 @@ public class Fragment1 extends Fragment {
 
     public View onCreateView(LayoutInflater inflator, ViewGroup container, Bundle savedInstanceState) {
 
-        View v = inflator.inflate(R.layout.frag1,container,false);
+        View v = inflator.inflate(R.layout.frag1, container, false);
         final List<String> mutableBookings = new ArrayList<>();
         mutableBookings.add("Hello");
 
         final ListView bookingsListView = (ListView) v.findViewById(R.id.bookings_listview);
         final Button showPreviousMonthBut = (Button) v.findViewById(R.id.prev_button);
         final Button showNextMonthBut = (Button) v.findViewById(R.id.next_button);
-        final Button slideCalendarBut = (Button) v.findViewById(R.id.slide_calendar);
+       // final Button slideCalendarBut = (Button) v.findViewById(R.id.slide_calendar);
         final Button showCalendarWithAnimationBut = (Button) v.findViewById(R.id.expose_animation);
 
-    //    final ArrayAdapter adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, mutableBookings);
-    //    bookingsListView.setAdapter(adapter);
+        //    final ArrayAdapter adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, mutableBookings);
+        //    bookingsListView.setAdapter(adapter);
 
         compactCalendarView = (CompactCalendarView) v.findViewById(R.id.compactcalendar_view);
-       // compactCalendarView.setUseThreeLetterAbbreviation(false);
+        // compactCalendarView.setUseThreeLetterAbbreviation(false);
         compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
 
-      //  toolbar = ((ActionBarActivity) getActivity()).getSupportActionBar();
-      //  toolbar.setTitle(dateFormatForMonth.format(compactCalendarView.getFirstDayOfCurrentMonth()));
+        //  toolbar = ((ActionBarActivity) getActivity()).getSupportActionBar();
+        //  toolbar.setTitle(dateFormatForMonth.format(compactCalendarView.getFirstDayOfCurrentMonth()));
      /*   compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
                                             @Override
                                             public void onDayClick(Date dateClicked) {
@@ -83,12 +81,11 @@ public class Fragment1 extends Fragment {
                                             }
 
                                         }); */
-            //loadEvents();
+        //loadEvents();
 //        loadEventsForYear(2017);
-       // compactCalendarView.invalidate();
+        // compactCalendarView.invalidate();
 
         //logEventsByMonth(compactCalendarView);
-
 
 
         showPreviousMonthBut.setOnClickListener(new View.OnClickListener() {
@@ -105,8 +102,8 @@ public class Fragment1 extends Fragment {
             }
         });
 
-    //    final View.OnClickListener showCalendarOnClickLis = getCalendarShowLis();
-    //    slideCalendarBut.setOnClickListener(showCalendarOnClickLis);
+        //    final View.OnClickListener showCalendarOnClickLis = getCalendarShowLis();
+        //    slideCalendarBut.setOnClickListener(showCalendarOnClickLis);
 
         final View.OnClickListener exposeCalendarListener = getCalendarExposeLis();
         showCalendarWithAnimationBut.setOnClickListener(exposeCalendarListener);
@@ -115,6 +112,7 @@ public class Fragment1 extends Fragment {
 
 
     }
+
     private View.OnClickListener getCalendarExposeLis() {
         return new View.OnClickListener() {
             @Override
@@ -171,6 +169,7 @@ public class Fragment1 extends Fragment {
         Log.d(TAG, "Events for Aug with simple date formatter: " + dates);
         Log.d(TAG, "Events for Aug month using default local and timezone: " + compactCalendarView.getEventsForMonth(currentCalender.getTime()));
     }
+
     private void addEvents(int month, int year) {
         currentCalender.setTime(new Date());
         currentCalender.set(Calendar.DAY_OF_MONTH, 1);
@@ -185,16 +184,17 @@ public class Fragment1 extends Fragment {
                 currentCalender.set(Calendar.YEAR, year);
             }
             currentCalender.add(Calendar.DATE, i);
-            setToMidnight(currentCalender);
+          //  setToMidnight(currentCalender);
             long timeInMillis = currentCalender.getTimeInMillis();
 
-            List<Event> events = getEvents(timeInMillis, i);
+          //  List<Event> events = getEvents(timeInMillis, i);
 
-            compactCalendarView.addEvents(events);
+          //  compactCalendarView.addEvents(events);
         }
     }
+}
 
-    private List<Event> getEvents(long timeInMillis, int day) {
+ /*   private List<Event> getEvents(long timeInMillis, int day) {
         if (day < 2) {
             return Arrays.asList(new Event(Color.argb(255, 169, 68, 65), timeInMillis, "Event at " + new Date(timeInMillis)));
         } else if ( day > 2 && day <= 4) {
@@ -216,3 +216,4 @@ public class Fragment1 extends Fragment {
         calendar.set(Calendar.MILLISECOND, 0);
     }
 }
+*/
