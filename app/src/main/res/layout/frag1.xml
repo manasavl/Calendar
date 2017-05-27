@@ -8,18 +8,18 @@
         android:layout_below="@+id/compactcalendar_view"
         android:layout_alignParentLeft="true"
         android:id="@+id/prev_button"
-        android:text="Previous"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="prev" />
 
 
     <Button
         android:layout_below="@+id/compactcalendar_view"
         android:layout_alignParentRight="true"
         android:id="@+id/next_button"
-        android:text="Next"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="next"/>
 
     <com.github.sundeepk.compactcalendarview.CompactCalendarView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -45,20 +45,30 @@
         android:id="@+id/expose_animation"
 
         android:text="Expose"
-        android:layout_below="@+id/compactcalendar_view"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        />
+        android:layout_below="@+id/compactcalendar_view"
+        android:layout_toEndOf="@+id/prev_button"
+        android:layout_marginStart="29dp" />
 
 
     <ListView
         android:id="@+id/bookings_listview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/prev_button">
     </ListView>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/expose_animation"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Month Name"
+        android:layout_above="@+id/bookings_listview" />
 
 </RelativeLayout>
