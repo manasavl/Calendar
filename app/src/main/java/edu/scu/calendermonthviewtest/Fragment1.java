@@ -67,8 +67,12 @@ public class Fragment1 extends Fragment {
                                                 Log.d(TAG, "inside onclick " + dateFormatForDisplaying.format(dateClicked));
                                                 Log.d(TAG, "inside onclick " + dateFormatForMonth.format(dateClicked));
                                                 text3.setText(dateFormatForMonth.format(dateClicked));
+                                                if(dateFormatForDisplaying.format(dateClicked).equals("28-5-2017 12:00:00 AM")) {
+                                                    mobileArray.set(1,"Movie opposite to library");
+                                                    mobileArray.set(2,"Concert near Benson");
+                                                }
                                                // List<Event> bookingsFromMap =
-                                                mobileArray.add("EventA : Pool");
+                                            //    mobileArray.set(1,"EventA : Pool");
                                                 adapter.notifyDataSetChanged();
                                             }
             public void onMonthScroll(Date firstDayOfNewMonth) {
