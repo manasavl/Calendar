@@ -45,9 +45,9 @@ public class Fragment1 extends Fragment {
 
         final EditText text3 = (EditText) v.findViewById(editText);
         final ArrayList<String> mobileArray = new ArrayList<>();
-        mobileArray.add("Event1 : At SCU at 7 am");
-        mobileArray.add("Events2 : At Bannan Center");
-        mobileArray.add("Events3 : At Library");
+      //  mobileArray.add("Event1 : At SCU at 7 am");
+      //  mobileArray.add("Events2 : At Bannan Center");
+      //  mobileArray.add("Events3 : At Library");
       //  final String[] mobileArray = {"Event1 : At SCU", "Events2 : At Bannan Center", "Event3 : At library"};
 
         final ListView bookingsListView = (ListView) v.findViewById(bookings_listview);
@@ -68,8 +68,17 @@ public class Fragment1 extends Fragment {
                                                 Log.d(TAG, "inside onclick " + dateFormatForMonth.format(dateClicked));
                                                 text3.setText(dateFormatForMonth.format(dateClicked));
                                                 if(dateFormatForDisplaying.format(dateClicked).equals("28-5-2017 12:00:00 AM")) {
-                                                    mobileArray.set(1,"Movie opposite to library");
-                                                    mobileArray.set(2,"Concert near Benson");
+                                                    mobileArray.clear();
+                                                    mobileArray.add(0,"Fitness event near gym");
+                                                    mobileArray.add(1,"Movie opposite to library");
+                                                    mobileArray.add(2,"Concert near Benson");
+                                                } else if(dateFormatForDisplaying.format(dateClicked).equals("30-5-2017 12:00:00 AM")){
+                                                    mobileArray.clear();
+                                                    mobileArray.add(0,"My event");
+                                                    mobileArray.add(1,"My event2");
+                                                    mobileArray.add(2,"My event3");
+                                                } else {
+                                                    mobileArray.clear();
                                                 }
                                                // List<Event> bookingsFromMap =
                                             //    mobileArray.set(1,"EventA : Pool");
